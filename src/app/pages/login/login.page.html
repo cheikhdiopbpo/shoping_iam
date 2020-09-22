@@ -1,0 +1,71 @@
+<div class="page">
+    <!-- navbar -->
+    <div class="navbar navbar-page">
+        <div class="navbar-inner sliding">
+            <!-- <div class="left">
+                <a href="#" class="link back">
+                    <i class="icon icon-back"></i>
+                    <span class="if-not-md">Back</span>
+                </a>
+            </div> -->
+            <div class="title">
+                Connexion
+            </div>
+        </div>
+    </div>
+    <!-- end navbar -->
+    <div class="page-content">
+
+        <!-- sign in -->
+
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div class="segments-page">
+            <div class="container">
+
+                <div class="sign-in">
+                    <div class="content-box">
+                        <form class="list no-hairlines-md">
+                            <ul>
+                                <li class="item-content item-input">
+                                    <div class="item-media">
+                                        <i class="fas fa-envelope"></i>
+                                    </div>
+                                    <div class="item-inner">
+                                        <div class="item-title item-label">Email</div>
+                                        <div class="item-input-wrap">
+                                            <input type="email" name="email" [(ngModel)]="user.email" aceholder="Your Email ">
+                                            <span class="input-clear-button "></span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="item-content item-input ">
+                                    <div class="item-media ">
+                                        <i class="fas fa-key "></i>
+                                    </div>
+                                    <div class="item-inner ">
+                                        <div class="item-title item-label ">Password</div>
+                                        <div class="item-input-wrap ">
+                                            <input type="password " name="password" [(ngModel)]="user.password" placeholder="Your Password ">
+                                            <span class="input-clear-button "></span>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </form>
+                        <button class="buttons" (click)="signin()">Sign In</button>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        <!-- end sign in -->
+
+    </div>
+
+</div>
