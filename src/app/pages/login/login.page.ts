@@ -10,40 +10,50 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class LoginPage implements OnInit {
   allUser : any = [];
-  user : any = {};
+  //user : any = {};
+  email :string;
+  password :string;
   constructor(private userService : UserService,private toast : ToastController,private route : Router) {
-      this.userService.getDatabaseState().subscribe(rdy=>{
-          if(rdy){
-             this.userService.getAllUser().then(res=>{
-               this.allUser = res;
-              console.log(res);
-               
-             });
-          }
-      });
-      this.user.email = "";
-      this.user.password = "";
-   }
+    this.userService.getDatabaseState().subscribe(rdy=>{
+      if(rdy){
+         this.userService.getAllUser().then(res=>{
+           this.allUser = res;
+          console.log(res);
+           
+         });
+      }
+  });
+  this.email = "";
+  this.password = "";
+    }
 
   ngOnInit() {
   }
+ionViewDidEnter(){
 
+}
 
   signin(){
- //   console.log("my object " ,this.allUser);
-    let checkUser = this.allUser.find(x=>x.email == this.user.email && x.pwd == this.user.password);
+      console.log("my object " ,this.email , this.password);
+      // let email:any = this.email.trim();
+      // let pwd :any = this.password.trim();
+    let checkUser = this.allUser.find(x=> x.email == this.email  && x.pwd == this.password);
     console.log(checkUser);
     
     if(checkUser == undefined){
       this.showMessage("Login ou mot de passe incorrecte")
     }else{
 
-      const mesdeonne : NavigationExtras = {
+      const mesdonnee : NavigationExtras = {
         queryParams : {
-          user : JSON.stringify(checkUser)
+          user : JSON.stringify(checkUser),
+          
         }
       }
-      this.route.navigate(["/home"], mesdeonne);
+      console.log(mesdonnee);
+      
+      this.route.navigate(["/home"], mesdonnee);
+      //this.route.navigateByUrl("home");
     }
     
   }
@@ -57,5 +67,9 @@ export class LoginPage implements OnInit {
         position: "top" 
     });
     toast.present();
+  }
+
+  goToSignUp(){
+    this.route.navigateByUrl("signup");
   }
 }

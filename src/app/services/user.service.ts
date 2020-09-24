@@ -58,6 +58,13 @@ export class UserService {
        
      });
   }
+  //delete user 
+  deleteOneUser(id:number){
+    this.database.executeSql("DELETE FROM users where id = ?",[id]).then(rs=>{
+      console.log(rs);
+      
+    });
+  }
   //get all users
   getAllUser():Promise<any>{
    

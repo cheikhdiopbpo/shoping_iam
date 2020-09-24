@@ -2,9 +2,14 @@
     <!-- navbar -->
     <div class="navbar navbar-page">
         <div class="navbar-inner sliding">
-
+            <div class="left">
+                <a href="#" class="link back" (click)="retour()">
+                    <i class="icon icon-back"></i>
+                    <span class="if-not-md">Retour</span>
+                </a>
+            </div>
             <div class="title">
-                Connexion
+                Sign up
             </div>
         </div>
     </div>
@@ -28,12 +33,24 @@
                             <ul>
                                 <li class="item-content item-input">
                                     <div class="item-media">
+                                        <i class="fas fa-user"></i>
+                                    </div>
+                                    <div class="item-inner">
+                                        <div class="item-title item-label">Username</div>
+                                        <div class="item-input-wrap">
+                                            <input type="text" name="name" [(ngModel)]="user.nom" aceholder="Your <template v-slot:name>defaultcontent</template> ">
+                                            <span class="input-clear-button "></span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="item-content item-input">
+                                    <div class="item-media">
                                         <i class="fas fa-envelope"></i>
                                     </div>
                                     <div class="item-inner">
                                         <div class="item-title item-label">Email</div>
                                         <div class="item-input-wrap">
-                                            <input type="email" name="email" [(ngModel)]="email" aceholder="Your Email ">
+                                            <input type="email" name="email" [(ngModel)]="user.email" aceholder="Your Email ">
                                             <span class="input-clear-button "></span>
                                         </div>
                                     </div>
@@ -45,15 +62,14 @@
                                     <div class="item-inner ">
                                         <div class="item-title item-label ">Password</div>
                                         <div class="item-input-wrap ">
-                                            <input type="password " name="password" [(ngModel)]="password" placeholder="Your Password ">
+                                            <input type="password " name="password" [(ngModel)]="user.pwd" placeholder="Your Password ">
                                             <span class="input-clear-button "></span>
                                         </div>
                                     </div>
                                 </li>
                             </ul>
                         </form>
-                        <button class="buttons" (click)="signin()">Sign In</button><br><br>
-                        <p style="text-align: center;" (click)="goToSignUp()">S'inscrire</p>
+                        <button class="buttons" (click)="signup()">Sign Up</button>
                     </div>
 
                 </div>
