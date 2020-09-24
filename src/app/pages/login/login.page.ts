@@ -35,9 +35,10 @@ ionViewDidEnter(){
 
   signin(){
       console.log("my object " ,this.email , this.password);
-      // let email:any = this.email.trim();
-      // let pwd :any = this.password.trim();
-    let checkUser = this.allUser.find(x=> x.email == this.email  && x.pwd == this.password);
+  
+    let checkUser = this.allUser.find( x=>
+                          String(x.email).trim().toLocaleLowerCase() == this.email.trim().toLocaleLowerCase()  && 
+                          String(x.pwd).trim().toLocaleLowerCase() == this.password.trim().toLocaleLowerCase());
     console.log(checkUser);
     
     if(checkUser == undefined){
