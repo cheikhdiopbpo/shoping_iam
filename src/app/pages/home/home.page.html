@@ -12,9 +12,10 @@
                 Home Shop
 
             </div>
-            <div>
+            <div class="right">
                 <p style="text-align: right;font-size: 10px;">{{user.nom}}</p>
             </div>
+
             <div class="subnavbar">
                 <form class="searchbar searchbar-init" data-search-container=".search-list" data-search-in=".item-title">
                     <div class="searchbar-inner">
@@ -91,184 +92,28 @@
                     </div>
                 </div>
 
-                <div class="flash-sale product segments">
-                    <div class="container">
-                        <div class="wrap-title">
-                            <h3>Flash Sale</h3>
-                        </div>
-                        <div class="swiper-container swiper-init" data-pagination='{"el": ".swiper-pagination"}' data-space-between="10" data-slides-per-view="2">
-                            <div class="swiper-pagination"></div>
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide">
-                                    <div class="content">
-                                        <img src="images/product1.jpg" alt="">
-                                        <div class="content-text">
-                                            <a href="/product-details/">
-                                                <p>Hoodie Pullover Men Long Sleeves</p>
-                                            </a>
-                                            <span class="price">$29</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="content">
-                                        <img src="images/product2.jpg" alt="">
-                                        <div class="content-text">
-                                            <a href="/product-details/">
-                                                <p>Mountain Shoes - Strong Ingredients</p>
-                                            </a>
-                                            <span class="price">$40</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="content">
-                                        <img src="images/product3.jpg" alt="">
-                                        <div class="content-text">
-                                            <a href="/product-details/">
-                                                <p>Casual Dress Shirt Men Long Sleeves</p>
-                                            </a>
-                                            <span class="price">$35</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="content">
-                                        <img src="images/product4.jpg" alt="">
-                                        <div class="content-text">
-                                            <a href="/product-details/">
-                                                <p>Standard Dress Shirt Men Long Sleeves</p>
-                                            </a>
-                                            <span class="price">$37</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="content">
-                                        <img src="images/product5.jpg" alt="">
-                                        <div class="content-text">
-                                            <a href="/product-details/">
-                                                <p>Outdoor Backpack - Water Resistant</p>
-                                            </a>
-                                            <span class="price">$55</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
-                <div class="promo">
-                    <div class="container">
-                        <div class="wrap-title">
-                            <h3>Today's Promo<a href="#" class="see-all-link">See All</a></h3>
-                        </div>
-                        <div class="swiper-container swiper-init" data-pagination='{"el": ".swiper-pagination"}' data-space-between="10" data-slides-per-view="2">
-                            <div class="swiper-pagination"></div>
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide">
-                                    <a href="#">
-                                        <img src="images/promo1.jpg" alt="">
-                                    </a>
-                                </div>
-                                <div class="swiper-slide">
-                                    <a href="#">
-                                        <img src="images/promo2.jpg" alt="">
-                                    </a>
-                                </div>
-                                <div class="swiper-slide">
-                                    <a href="#">
-                                        <img src="images/promo3.jpg" alt="">
-                                    </a>
-                                </div>
-                                <div class="swiper-slide">
-                                    <a href="#">
-                                        <img src="images/promo4.jpg" alt="">
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
                 <div class="new-product product">
                     <div class="container">
                         <div class="wrap-title">
-                            <h3>New Product<a href="#" class="see-all-link">See All</a></h3>
+                            <h3>Produit recent<a href="#" class="see-all-link">Voir plus</a></h3>
                         </div>
                         <div class="row">
-                            <div class="col-50">
+                            <div class="col-50" *ngFor="let item2 of recenteProduit">
                                 <div class="content">
-                                    <img src="images/product3.jpg" alt="">
+                                    <img src="../../../assets/img/{{item2.img}}" alt="">
                                     <div class="content-text">
                                         <a href="/product-details/">
-                                            <p>Casual Dress Shirt Men Long Sleeves</p>
+                                            <p>{{item2.nom}}</p>
                                         </a>
-                                        <span class="price">$35</span>
+                                        <span class="price">{{item2.prix}} Fcfa</span>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-50">
-                                <div class="content">
-                                    <img src="images/product4.jpg" alt="">
-                                    <div class="content-text">
-                                        <a href="/product-details/">
-                                            <p>Standard Dress Shirt Men Long Sleeves</p>
-                                        </a>
-                                        <span class="price">$37</span>
-                                    </div>
-                                </div>
-                            </div>
+
                         </div>
-                        <div class="row">
-                            <div class="col-50">
-                                <div class="content">
-                                    <img src="images/product5.jpg" alt="">
-                                    <div class="content-text">
-                                        <a href="/product-details/">
-                                            <p>Outdoor Backpack - Water Resistant</p>
-                                        </a>
-                                        <span class="price">$55</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-50">
-                                <div class="content">
-                                    <img src="images/product6.jpg" alt="">
-                                    <div class="content-text">
-                                        <a href="/product-details/">
-                                            <p>Jacket For Men - Outdoor Jacket</p>
-                                        </a>
-                                        <span class="price">$27</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-50">
-                                <div class="content">
-                                    <img src="images/product7.jpg" alt="">
-                                    <div class="content-text">
-                                        <a href="/product-details/">
-                                            <p>Motorcycle Gloves - Thick and Strong</p>
-                                        </a>
-                                        <span class="price">$21</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-50">
-                                <div class="content">
-                                    <img src="images/product8.jpg" alt="">
-                                    <div class="content-text">
-                                        <a href="/product-details/">
-                                            <p>Women's Shirt - Cotton, Smooth, Comfortable</p>
-                                        </a>
-                                        <span class="price">$33</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+
                     </div>
                 </div>
             </div>
