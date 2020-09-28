@@ -1,6 +1,6 @@
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Component, OnInit } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, NavigationExtras, Router } from "@angular/router";
 import { ToastController } from "@ionic/angular";
 import { CategorieService } from "src/app/services/categorie.service";
 import { ProduitService } from "src/app/services/produit.service";
@@ -18,6 +18,7 @@ export class HomePage implements OnInit {
   constructor(
     private activateRoute: ActivatedRoute,
     private categoriService: CategorieService,
+    private route : Router,
     private toast: ToastController,
     private produitService: ProduitService
   ) {
@@ -56,7 +57,20 @@ export class HomePage implements OnInit {
 
   showCategorie(item) {
     let message: string = "Ctégorie :" + item.nom;
-    this.showMessage(message);
+    let produitByCategori : any = [];
+    this.allProduit.forEach(el => {
+       if(el.categorie_id == item.id){
+         produitByCategori.push(el);
+       }
+    });
+    console.log(" result" ,produitByCategori);
+    const mesdonne : NavigationExtras = {
+      queryParams : {
+        produits : JSON.stringify(produitByCategori)
+      }
+    }
+    this.route.navigate(["/produit-categorie"],mesdonne);
+   // this.showMessage(message);
   }
 
   async showMessage(message: string) {

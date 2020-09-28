@@ -1,0 +1,53 @@
+<div class="page">
+
+
+    <div class="subnavbar">
+        <!-- <form class="searchbar searchbar-init" data-search-container=".search-list" data-search-in=".item-title">
+            <div class="searchbar-inner"> -->
+        <!-- <div class="searchbar-input-wrap"> -->
+        <ion-searchbar (ionChange)="chercheProduit($event)">
+
+        </ion-searchbar>
+        <!-- <input type="search" placeholder="Search for product or stores"> -->
+        <!-- <i class="searchbar-icon"></i>
+                    <span class="input-clear-button"></span> -->
+        <!-- </div> -->
+        <!-- <span class="searchbar-disable-button">Cancel</span> -->
+        <!-- </div>
+        </form> -->
+    </div>
+
+    <div class="page-content">
+
+
+        <div class="segments-page">
+            <div class="container">
+
+                <div class="product product-page">
+
+                    <div class="row">
+                        <div class="col-50" *ngFor="let item of allProduits" (click)="showProduit(item)">
+                            <div class="content">
+                                <img src="../../../assets/img/{{item.img}}" alt="">
+                                <div class="content-text">
+                                    <a href="/product-details/">
+                                        <p>{{item.nom}}</p>
+                                    </a>
+                                    <span class="price">{{item.prix}}</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
+                </div>
+
+            </div>
+        </div>
+
+
+    </div>
+
+</div>
