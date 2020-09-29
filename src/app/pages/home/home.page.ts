@@ -3,8 +3,9 @@ import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, NavigationExtras, Router } from "@angular/router";
 import { ToastController } from "@ionic/angular";
 import { CategorieService } from "src/app/services/categorie.service";
+import { CommandeService } from 'src/app/services/commande.service';
 import { ProduitService } from "src/app/services/produit.service";
-
+import {environment}  from '../../../environments/environment';
 @Component({
   selector: "app-home",
   templateUrl: "./home.page.html",
@@ -20,12 +21,38 @@ export class HomePage implements OnInit {
     private categoriService: CategorieService,
     private route : Router,
     private toast: ToastController,
-    private produitService: ProduitService
+    private produitService: ProduitService,
+    private commandeService : CommandeService
   ) {
     this.activateRoute.queryParams.subscribe((data) => {
       console.log("HOME PAGE", JSON.parse(data.user));
       this.user = JSON.parse(data.user);
+      environment.user = this.user;
     });
+
+    this.commandeService.getDatabaseState().subscribe(rdy=>{
+      if(rdy){
+         this.commandeService.getAllcommandes().then(res=>{
+           this.produitService.getAllProduits().then(res2=>{ 
+           console.log(res);
+           let recapcommande : any = [];
+           res.forEach(el1 => {
+                res2.forEach(el2 => {
+                     if(el1.id_produit == el2.id)
+                     {
+                       el1.libbelle = el2.libelle;
+                       el1.prix = el2.prix;
+                       el1.total = el1.qt * el2.prix
+                       recapcommande.push(el1);
+                     }
+                });
+           });
+           console.log("mon recap", recapcommande);
+           
+          });
+         });
+      }
+  });
 
     this.categoriService.getDatabaseState().subscribe((rdy) => {
       if (rdy) {

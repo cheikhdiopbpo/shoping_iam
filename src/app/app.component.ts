@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Platform } from '@ionic/angular';
+import { LoadingController, Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 
@@ -48,7 +48,8 @@ export class AppComponent implements OnInit {
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
-    private statusBar: StatusBar
+    private statusBar: StatusBar,
+    private loadingControl : LoadingController
   ) {
     this.initializeApp();
   }
@@ -56,8 +57,17 @@ export class AppComponent implements OnInit {
   initializeApp() {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
+      this.presentLoading();
       this.splashScreen.hide();
     });
+  }
+ async presentLoading() {
+    const loading = await this.loadingControl.create({
+      message: 'Hellooo',
+      duration: 2000,
+      spinner: 'bubbles'
+    });
+    await loading.present();
   }
 
   ngOnInit() {
